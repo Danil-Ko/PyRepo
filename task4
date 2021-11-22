@@ -1,0 +1,7 @@
+4--1
+import numpy as np
+print(np.array(range(0, 100)).sum())
+
+4--2
+import numpy as np
+print(np.array(range(0, int(input()))).sum())

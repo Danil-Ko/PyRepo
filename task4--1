@@ -1,2 +1,0 @@
-import numpy as np
-print(np.array(range(0, 100)).sum())
