@@ -1,0 +1,20 @@
+1--1
+str1 = input()
+str2 = str()
+for sym in range(len(str1)):
+    if str1[sym] == 'x':
+        str2 += 'y'
+    else: str2 += str1[sym]
+print(str2)
+
+2--2
+mult = 1
+#ввод строкой, числа будут делиться по пробелам
+for num in input().split():
+    numi = int(num)
+    if (numi % 3 == 0) or (numi % 5 == 0):
+        mult *= numi
+print(mult)
+
+3--3
+print(input().replace('x', 'y'))
