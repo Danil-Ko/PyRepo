@@ -1,13 +1,21 @@
 6--3
 from pprint import pprint
 import Levenshtein as ls
-ind = True
+
+                                                                             # Отделение двумя пробелами  
 class Person:
     def __init__(self, height, name, age, hometown):
-        self.height, self.name, self.age, self.hometown = height, name, age, hometown
+        self.height, self.name, self.age, self.hometown = (height, name,
+                                                          age, hometown)     # Слишком длинная строка, 86-->72
         self.key = (height, name)
+
+                                                                             # Отделение двумя пробелами
     def __repr__(self):
-        return 'Person(%s, %s, %s, %s)' % (self.height, self.name, self.age, self.hometown)
+        return 'Person(%s, %s, %s, %s)' % (self.height, self.name,           # Слишком длинная строка, 92-->68
+                                           self.age, self.hometown)
+
+                                                                             # Отделение двумя пробелами
+indicator = True                                                             # На всякий случай убрал сокращение
 maks = Person(197, 'Максим', 13, 'Пермь')
 vlad = Person(188, 'Владимир', 49, 'Кемерово')
 dmitr = Person(193, 'Дмитрий', 24, 'Свердловск')
@@ -18,14 +26,14 @@ field = input('По какому полю будем искать? ')
 if field == 'рост':
     height = int(input('какого роста человека ищете? '))
     for key in people:
-        if (key[0]>=height-2) and (key[0]<=height+2):
+        if (height+2 >= key[0] >= height-2):
             print(people[key])
-            ind = False
+            indicator = False 
 else:
     name = input('какого имени человека ищете? ')
     for key in people:
         if ls.distance(key[1].lower(), name.lower()) <= 2:
             print(people[key])
-            ind = False
-if ind == True :
+            indicator = False
+if indicator == True:                                                             # Лишний пробел перед двоеточием  
     print('ПОДХОДЯЩЕГО ЧЕЛОВЕКА НЕ НАЙДЕНО')
