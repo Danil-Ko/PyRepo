@@ -1,0 +1,12 @@
+memory = list()
+query = input('введите свой вопрос, если не хотите нажмите ноль\n ')
+while query != '0':
+    if query in memory:
+        print('Уже спрашивали, нечего моё время тратить')
+    else:    
+        if len(query) > 7:
+            print('НЕТ')
+        else:
+            print('ДА')
+        memory.append(query)
+    query = input('введите свой вопрос, если не хотите нажмите ноль\n ')
