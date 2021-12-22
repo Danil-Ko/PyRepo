@@ -1,12 +1,31 @@
+import Levenshtein as Ls
+from itertools import product
+
+
+def entry(query, memory):
+    for word in query.split():
+        if word.isupper():
+            key_word = word
+            for previous_query in memory:
+                for word in previous_query.split():
+                    if Ls.distance(word, key_word) <= 4:
+                        return True
+        else: 
+            key_word = None
+    if key_word == None:
+        print('говорю же пишите с КАПСОМ')
+            
+
+
 memory = list()
-query = input('введите свой вопрос, если не хотите нажмите ноль\n ')
+query = input('введите свой вопрос, ключевое слово пишите капсом, если не хотите нажмите ноль\n ')
 while query != '0':
-    if query in memory:
+    if entry(query, memory):
         print('Уже спрашивали, нечего моё время тратить')
     else:    
         if len(query) > 7:
             print('НЕТ')
         else:
             print('ДА')
-        memory.append(query)
-    query = input('введите свой вопрос, если не хотите нажмите ноль\n ')
+    memory.append(query)
+    query = input('введите свой вопрос, ключевое слово пишите капсом, если не хотите нажмите ноль\n ')
